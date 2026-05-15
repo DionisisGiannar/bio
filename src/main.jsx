@@ -5,7 +5,6 @@ import {
   BriefcaseBusiness,
   ChevronDown,
   Code2,
-  Cpu,
   Folder,
   Github,
   GraduationCap,
@@ -13,8 +12,6 @@ import {
   Linkedin,
   Mail,
   MapPin,
-  Network,
-  Satellite,
   ScrollText,
   ShieldCheck,
   Globe2,
@@ -32,13 +29,6 @@ const navItems = [
   { id: "publications", label: "/publications", icon: ScrollText },
   { id: "certifications", label: "/certifications", icon: Award },
   { id: "more", label: "/more", icon: Wrench }
-];
-
-const heroChips = [
-  { label: "Neural Networks", icon: Network },
-  { label: "Satellite Data", icon: Satellite },
-  { label: "Intelligent Systems", icon: Cpu },
-  { label: "Team Lead", icon: BriefcaseBusiness }
 ];
 
 const featuredProjects = [
@@ -423,6 +413,8 @@ function InteractiveTerminal() {
       nextLines.push({ type: "egg", text: "Access granted. Neural nets calibrated, satellite pixels aligned, rover wheels warmed, drums in 7/8. Building impact..." });
     } else if (command.startsWith("sudo")) {
       nextLines.push({ type: "egg", text: "Nice try, but root access is currently busy making tea." });
+    } else if (command === "hello") {
+      nextLines.push({ type: "output", text: "Hello, world! Type help to see available commands" });
     } else {
       nextLines.push({ type: "error", text: "command not found. Try help" });
     }
@@ -495,14 +487,6 @@ function Hero() {
       <div className="intro-panel">
         <h1>Dionysis<br />Giannaropoulos</h1>
         <p className="role-line">AI Researcher · Software Engineer · Team Lead</p>
-        <div className="chip-grid">
-          {heroChips.map(({ label, icon: Icon }) => (
-            <span className="skill-chip" key={label}>
-              <Icon size={15} />
-              {label}
-            </span>
-          ))}
-        </div>
         <SkillMeters />
       </div>
 

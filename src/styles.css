@@ -304,36 +304,9 @@ button {
   line-height: 1.72;
 }
 
-.chip-grid {
-  width: min(492px, 100%);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px 6px;
-  margin-top: 18px;
-}
-
 .intro-panel .compact-card {
   width: min(492px, 100%);
   margin-top: 18px;
-}
-
-.skill-chip {
-  min-height: 31px;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 0 9px;
-  border: 1px solid rgba(136, 151, 190, 0.25);
-  border-radius: 5px;
-  color: #c6ccdc;
-  background: rgba(13, 21, 36, 0.68);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-  font-size: 9px;
-  font-weight: 600;
-}
-
-.skill-chip svg {
-  color: var(--green);
 }
 
 .location-line {
