@@ -11,12 +11,14 @@ import {
   Home,
   Linkedin,
   Mail,
+  Menu,
   MapPin,
   ScrollText,
   ShieldCheck,
   Globe2,
   Clock3,
-  Wrench
+  Wrench,
+  X
 } from "lucide-react";
 import "./styles.css";
 
@@ -65,11 +67,11 @@ const experienceGroups = [
     logo: "empedus",
     items: [
       {
-        role: "Team Lead",
+        role: "Agile Team Leader",
         date: "May 2026 - Present",
         duration: "1 mo",
         location: "Greece · Remote · Part-time",
-        details: "Team Leadership, Team Management, Delivery Ownership"
+        details: "Team Leadership, Team Management, Delivery Ownership, Agile Methodologies"
       },
       {
         role: "Software Architect",
@@ -96,7 +98,7 @@ const experienceGroups = [
         date: "Jan 2025 - Present",
         duration: "1 yr 5 mos",
         location: "Greece · On-site",
-        details: "Python, Neural Networks, Climate Services"
+        details: "Python, Artificial Neural Networks, Climate Services, Satellite Data"
       }
     ]
   },
@@ -109,7 +111,7 @@ const experienceGroups = [
         date: "Oct 2024 - Present",
         duration: "1 yr 8 mos",
         location: "Greece · On-site",
-        details: "Research, Artificial Neural Networks, Satellite Data"
+        details: "Research, Artificial Neural Networks, "
       }
     ]
   }
@@ -125,7 +127,7 @@ const moreProjects = [
   {
     title: "Promptera",
     meta: "Self-initiated · AI Developer Platform",
-    body: "Prompt engineering and agentic workflow studio with workspaces, version control, multi-model testing, templates, and a VS Code-like interface.",
+    body: "Prompt engineering and agentic workflow studio for organizing and enhancing your prompts.",
     href: "https://promtpera.gr"
   },
   {
@@ -330,14 +332,34 @@ function NeuralCanvas() {
   return <canvas className="neural-canvas" ref={ref} aria-hidden="true" />;
 }
 
-function Sidebar({ active, setActive }) {
+function Sidebar({ active, setActive, mobileMenuOpen, setMobileMenuOpen }) {
+  const closeMenu = () => setMobileMenuOpen(false);
+
   return (
-    <aside className="sidebar">
-      <a className="brand" href="#home" onClick={() => setActive("home")} aria-label="Dionysis Giannaropoulos home">
+    <aside className={`sidebar ${mobileMenuOpen ? "menu-open" : ""}`}>
+      <a
+        className="brand"
+        href="#home"
+        onClick={() => {
+          setActive("home");
+          closeMenu();
+        }}
+        aria-label="Dionysis Giannaropoulos home"
+      >
         <span className="brand-mark" aria-hidden="true">
           <img src={assetUrl("assets/dg-monogram.png")} alt="" />
         </span>
       </a>
+
+      <button
+        className="mobile-menu-toggle"
+        type="button"
+        aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={mobileMenuOpen}
+        onClick={() => setMobileMenuOpen((open) => !open)}
+      >
+        {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+      </button>
 
       <nav className="side-nav" aria-label="Main navigation">
         {navItems.map(({ id, label, icon: Icon }) => (
@@ -345,7 +367,10 @@ function Sidebar({ active, setActive }) {
             key={id}
             className={`nav-link ${active === id ? "active" : ""}`}
             href={`#${id}`}
-            onClick={() => setActive(id)}
+            onClick={() => {
+              setActive(id);
+              closeMenu();
+            }}
           >
             <Icon size={16} strokeWidth={1.9} />
             <span>{label}</span>
@@ -391,7 +416,7 @@ function InteractiveTerminal() {
     if (command === "help") {
       nextLines.push({ type: "output", text: commandHelp });
     } else if (command === "whoami") {
-      nextLines.push({ type: "output", text: "Dionysis Giannaropoulos - AI researcher, software engineer, and team lead building intelligent systems for real-world impact." });
+      nextLines.push({ type: "output", text: "Dionysis Giannaropoulos - AI researcher, software engineer, and team leader building intelligent systems for real-world impact." });
     } else if (command === "focus") {
       nextLines.push({ type: "output", text: "Machine Learning / AI · Software Architecture · Team Leadership · Satellite Data · Robotics & EO." });
     } else if (sectionCommands.has(command)) {
@@ -409,8 +434,6 @@ function InteractiveTerminal() {
           ["Email", "mailto:dion.giann@gmail.com"]
         ]
       });
-    } else if (command === "sudo make impact") {
-      nextLines.push({ type: "egg", text: "Access granted. Neural nets calibrated, satellite pixels aligned, rover wheels warmed, drums in 7/8. Building impact..." });
     } else if (command.startsWith("sudo")) {
       nextLines.push({ type: "egg", text: "Nice try, but root access is currently busy making tea." });
     } else if (command === "hello") {
@@ -491,13 +514,15 @@ function Hero() {
       </div>
 
       <div className="terminal-area">
-        <InteractiveTerminal />
         <div className="info-strip">
           <span><MapPin size={15} /> Lamia/Athens, Greece</span>
           <span><Globe2 size={15} /> Available Worldwide</span>
           <span><Clock3 size={15} /> UTC+2</span>
         </div>
+        <InteractiveTerminal />
       </div>
+
+      <ScrollCue className="mobile-scroll-cue" />
     </section>
   );
 }
@@ -594,9 +619,9 @@ function Experience() {
   );
 }
 
-function ScrollCue() {
+function ScrollCue({ className = "" }) {
   return (
-    <div className="scroll-cue" aria-hidden="true">
+    <div className={`scroll-cue ${className}`} aria-hidden="true">
       <span />
       <div><i /> Scroll to explore more <ChevronDown size={19} /></div>
       <span />
@@ -693,6 +718,7 @@ function SectionedContent() {
 
 function App() {
   const [active, setActive] = useState("home");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const scrollToHash = () => {
@@ -728,11 +754,16 @@ function App() {
     <>
       <NeuralCanvas />
       <div className="app-frame">
-        <Sidebar active={active} setActive={setActive} />
+        <Sidebar
+          active={active}
+          setActive={setActive}
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+        />
         <div className="shell-title"><span /> dion@neuro-shell: ~</div>
         <main className="content-shell">
           <Hero />
-          <ScrollCue />
+          <ScrollCue className="desktop-scroll-cue" />
           <div className="dashboard-grid experience-only">
             {/* <div className="left-stack">
               <FeaturedProjects />
