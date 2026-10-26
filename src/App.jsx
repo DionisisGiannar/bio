@@ -1,3 +1,4 @@
+import rabbitHeader from "./assets/rabbit-header.webp?inline";
 import React, { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -735,7 +736,7 @@ export default function App() {
           >
             <img
               className="rabbit-emblem"
-              src={asset("rabbit-emblem.webp")}
+              src={rabbitHeader}
               alt="Rabbit and crescent with three family stars"
               width="1216"
               height="1293"
