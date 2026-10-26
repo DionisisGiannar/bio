@@ -1,1 +1,17 @@
 Just the code for my Bio Page
+
+## Renaissance Signal redesign
+
+The website implements the selected second concept from `mockups/02-renaissance-signal.png`, with responsive desktop/mobile layouts, original pixel-engraving assets, locally hosted fonts, smooth navigation, section entrances, hover transitions, restrained parallax, and reduced-motion support.
+
+```sh
+npm install
+npm run dev
+npm run build
+```
+
+The current biography data, updated from the CV dated 25 October 2026 and the supplied planned PhD research direction, is in `src/content.js`. The optional terminal opens from the top-right shell label or Command/Ctrl+K. Existing education, skills, credentials, interests, and additional projects remain available in the archive. View CV opens a printable résumé generated from that content.
+
+Production assets are served from `public/assets/renaissance/` as lossless WebP files. Original generated PNGs are retained in `assets/renaissance-sources/`. Fonts and their SIL Open Font Licenses are in `public/assets/fonts/`. The Renaissance scenes are generated interpretations of the selected visual, rather than exact extractions.
+
+Visual checks and limitations are recorded in `design-qa.md`; browser captures and the source/implementation comparison are in `mockups/implementation/`.
