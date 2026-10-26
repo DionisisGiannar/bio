@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy GitHub Pages redirect
 
 on:
   push:
@@ -31,11 +31,8 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build site
-        run: npm run build
+      - name: Build redirect to dionysisg.com
+        run: node scripts/build-github-redirect.mjs
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -43,7 +40,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist-github-redirect
 
   deploy:
     needs: build
@@ -52,9 +49,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Wait for legacy Pages build
-        run: sleep 75
-
-      - name: Deploy to GitHub Pages
+      - name: Deploy GitHub Pages redirect
         id: deployment
         uses: actions/deploy-pages@v4
