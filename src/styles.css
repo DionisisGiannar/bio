@@ -2075,10 +2075,10 @@ body:has(dialog[open]) {
   font: 400 29px/1.1 var(--serif);
   margin-bottom: 12px;
 }
-.research-focus .planned-label {
+.research-focus .research-status {
   display: block;
   font: 400 10px/1.6 var(--mono);
-  color: #a6aaba;
+  color: var(--accent);
   margin-bottom: 14px;
 }
 .research-focus > p:last-child {
@@ -2160,19 +2160,6 @@ body:has(dialog[open]) {
 }
 .role-branch > p:last-child {
   margin: 0;
-}
-.planned-education .timeline-title,
-.planned-education .timeline-role,
-.planned-education .timeline-date,
-.planned-education .timeline-detail {
-  color: #9399a8;
-}
-.planned-education .timeline-marker {
-  background: transparent;
-  outline: 1px dashed #7b8292;
-}
-.planned-education summary {
-  border-bottom-style: dashed;
 }
 .publication-list {
   display: grid;

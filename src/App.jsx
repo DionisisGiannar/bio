@@ -25,7 +25,7 @@ import {
   certifications,
   skillBuckets,
   featuredProjects,
-  plannedResearch,
+  doctoralResearch,
   publications,
   profileParagraphs,
 } from "./content";
@@ -180,7 +180,7 @@ function TerminalPanel({ open, onClose, navigate }) {
       text =
         "Dionysis Giannaropoulos — AI Researcher · Software Architect · Team Lead.";
     else if (cmd === "focus")
-      text = `${plannedResearch.title} — planned PhD research, awaiting start. Current practice: machine learning, neuron dormancy monitoring, software architecture and environmental intelligence.`;
+      text = `${doctoralResearch.title} — PhD research in progress. Current practice: machine learning, neuron dormancy monitoring, software architecture and environmental intelligence.`;
     else if (cmd === "hello") text = "Hello, world. Type help to explore.";
     else if (cmd.startsWith("sudo"))
       text = "Root access is currently busy making tea.";
@@ -338,12 +338,12 @@ function Archive({ open, page, onClose, onPage }) {
               <p key={paragraph}>{paragraph}</p>
             ))}
             <h3>
-              {plannedResearch.degree} — {plannedResearch.status}
+              {doctoralResearch.degree} — {doctoralResearch.status}
             </h3>
             <p>
-              <strong>{plannedResearch.title}</strong>
+              <strong>{doctoralResearch.title}</strong>
               <br />
-              {plannedResearch.body}
+              {doctoralResearch.body}
             </p>
             <h3>Experience</h3>
             {experienceGroups.map((group) => (
@@ -501,23 +501,7 @@ function BranchedTimeline({ onEducation }) {
       <section className="timeline-branch academic-branch">
         <h3 className="branch-label">Education & research</h3>
         <div className="branch-nodes">
-          <div className="timeline-item planned-education">
-            <span className="timeline-marker" />
-            <details>
-              <summary>
-                <span className="timeline-title">PhD — Planned</span>
-                <span className="timeline-role">{plannedResearch.title}</span>
-                <span className="timeline-date">Awaiting start</span>
-              </summary>
-              <div className="timeline-detail">
-                <p>{plannedResearch.body}</p>
-                <p className="micro">
-                  Planned research direction; doctoral studies have not started.
-                </p>
-              </div>
-            </details>
-          </div>
-          {[education[0], education[1], education[2]].map(
+          {education.slice(0, 4).map(
             ([title, meta, body]) => (
               <div className="timeline-item" key={title}>
                 <span className="timeline-marker" />
@@ -990,11 +974,11 @@ export default function App() {
                 ))}
                 <div className="research-focus">
                   <p className="micro">CURRENT RESEARCH DIRECTION</p>
-                  <h3>{plannedResearch.title}</h3>
-                  <span className="planned-label">
-                    PhD · {plannedResearch.status}
+                  <h3>{doctoralResearch.title}</h3>
+                  <span className="research-status">
+                    PhD · {doctoralResearch.status}
                   </span>
-                  <p>{plannedResearch.body}</p>
+                  <p>{doctoralResearch.body}</p>
                 </div>
               </div>
               <BranchedTimeline onEducation={() => openArchive("education")} />

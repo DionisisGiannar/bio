@@ -1,4 +1,4 @@
-// Current professional content: CV dated 25 October 2026 + user-supplied planned PhD focus.
+// Current professional content: CV dated 25 October 2026 + user-confirmed PhD start and master’s grade.
 // Publisher confirms online 12 July 2026 and citation year 2027 for the AIAI 2026 paper.
 
 export const featuredProjects = [
@@ -145,10 +145,23 @@ export const moreProjects = [
   },
 ];
 
+export const doctoralResearch = {
+  title:
+    "Adaptive Neural Networks and Knowledge Consolidation in Machine Learning",
+  status: "In progress",
+  degree: "PhD",
+  body: "Bio-inspired research into how neural networks adapt, retain and consolidate knowledge. Aiming to contribute to the development of adaptive neural networks that can learn continuously, retain knowledge over time, and consolidate information effectively, with applications in lifelong learning and dynamic environments.",
+};
+
 export const education = [
   [
+    `PhD — ${doctoralResearch.title}`,
+    "2026–Present · In progress",
+    doctoralResearch.body,
+  ],
+  [
     "M.Sc. Artificial Intelligence and Applications",
-    "2025–2026 · University of Thessaly · Grade 9.3/10",
+    "2025–2026 · University of Thessaly · Grade 9.14/10",
     "Thesis: “Neuron Dormancy Monitoring in Deep Neural Networks”. Developed NeuroSentry, combining activation, gradient and importance metrics with fuzzy risk assessment to monitor neuron dormancy and identify underutilised neurons.",
   ],
   [
@@ -260,14 +273,6 @@ export const skillBuckets = [
     ],
   ],
 ];
-
-export const plannedResearch = {
-  title:
-    "Adaptive Neural Networks and Knowledge Consolidation in Machine Learning",
-  status: "Planned · Awaiting start",
-  degree: "PhD research direction",
-  body: "Bio-inspired research into how neural networks adapt, retain and consolidate knowledge. Aiming to contribute to the development of adaptive neural networks that can learn continuously, retain knowledge over time, and consolidate information effectively, with applications in lifelong learning and dynamic environments.",
-};
 
 export const publications = [
   {
