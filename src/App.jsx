@@ -891,7 +891,7 @@ export default function App() {
                       </ExternalLink>
                     </h3>
                     <p className="project-subtitle">
-                      AI Developer
+                      AI Prompt Management
                       <br /> Platform
                     </p>
                     <p className="project-description">
