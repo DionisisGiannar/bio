@@ -451,11 +451,8 @@ function Archive({ open, page, onClose, onPage }) {
               Greek — Native · English — Advanced (ECPE, IELTS 7.5) · German —
               Intermediate (B1)
             </p>
-            <h3>Interests</h3>
-            <p>
-              Iaido, Aikido, Tameshigiri, target shooting, drums, and music
-              composition.
-            </p>
+            <h3>Interests / Hobbies</h3>
+            <p>Music production, drums, target shooting.</p>
           </>
         ) : null}
       </div>
