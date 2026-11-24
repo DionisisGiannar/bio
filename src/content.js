@@ -67,7 +67,7 @@ export const experienceGroups = [
     logo: "empedus",
     items: [
       {
-        role: "Team Lead",
+        role: "Agile Delivery Lead",
         date: "May 2026 – Present",
         location: "Greece · Remote · Part-time",
         details:

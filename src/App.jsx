@@ -877,8 +877,8 @@ export default function App() {
                     aria-label="Open Promptera"
                   >
                     <img
-                      src={asset("cosmic-atlas.webp")}
-                      alt="Pixel engraving of a celestial cloud"
+                      src={asset("promptera-scene.webp")}
+                      alt="Promptera pixel ghost floating in a celestial observatory"
                       loading="lazy"
                       width="1024"
                       height="1024"

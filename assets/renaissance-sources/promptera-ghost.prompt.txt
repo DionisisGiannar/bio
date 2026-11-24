@@ -1,0 +1,2 @@
+Generated with built-in image_gen. Original logo used as edit target; classical-mind.webp used as style reference.
+Prompt: Preserve the Promptera ghost silhouette, left arm, scalloped bottom and two white capsule eyes. Recreate it in the portfolio's ultramarine, icy blue and ivory palette, with crisp stepped pixels and ordered checker dithering like a Renaissance sci-fi engraving. Isolated, front-facing, centered, transparent background; no text, props or scenery.

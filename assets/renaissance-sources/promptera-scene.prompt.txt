@@ -1,0 +1,2 @@
+Built-in image_gen edit. References: promptera-ghost.png (identity) and omega-spotter.webp (style/composition).
+Make the ghost smaller, around 52% canvas width and 55% height. Preserve its blue engraved pixel silhouette, left arm and two ivory eyes. Add a full dark navy dithered backdrop with subtle orbital diagrams, sparse pixel stars, crosshairs, a faint grid and a low fragmented stone/digital platform. Match the portfolio's ultramarine, cobalt, icy blue and ivory palette. Keep the ghost focal, with generous surrounding space; no text, purple, target or camera.
